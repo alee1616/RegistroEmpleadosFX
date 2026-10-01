@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox spacing="12" styleClass="ventana-principal"
-      stylesheets="@../estilos/estilos.css"
+      stylesheets="@estilos/estilos.css"
       xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.registroempleadosfx.controller.EmpleadoController">
