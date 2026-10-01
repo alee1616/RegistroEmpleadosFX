@@ -1,5 +1,5 @@
 
-CREATE DATABASE empleados;
+CREATE DATABASE biblioteca_fx ;
 
 
 CREATE TABLE empleado (
