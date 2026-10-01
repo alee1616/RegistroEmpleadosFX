@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox spacing="12" styleClass="ventana-principal"
+      stylesheets="@../estilos/estilos.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.registroempleadosfx.controller.EmpleadoController">
 
-</AnchorPane>
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="REGISTRO DE EMPLEADOS" styleClass="titulo-formulario"/>
+
+    <GridPane hgap="15" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="130" prefWidth="130"/>
+            <ColumnConstraints minWidth="220" prefWidth="260"/>
+            <ColumnConstraints minWidth="130" prefWidth="130"/>
+            <ColumnConstraints minWidth="220" prefWidth="260"/>
+        </columnConstraints>
+
+        <Label text="Nombres:" styleClass="etiqueta" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNombres" promptText="Ej: Carlos"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Apellidos:" styleClass="etiqueta" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="txtApellidos" promptText="Ej: Mendoza"
+                   GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+        <Label text="Cédula:" styleClass="etiqueta" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtCedula" promptText="001-000000-0000A"
+                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Correo:" styleClass="etiqueta" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="txtCorreo" promptText="correo@empresa.com"
+                   GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+        <Label text="Teléfono:" styleClass="etiqueta" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtTelefono" promptText="88881111"
+                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Cargo:" styleClass="etiqueta" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <TextField fx:id="txtCargo" promptText="Ej: Desarrollador"
+                   GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+        <Label text="Departamento:" styleClass="etiqueta" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cmbDepartamento" promptText="Seleccione..." maxWidth="Infinity"
+                  GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Salario:" styleClass="etiqueta" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+        <TextField fx:id="txtSalario" promptText="Ej: 1200.00"
+                   GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+        <Label text="Fecha contratación:" styleClass="etiqueta" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpFechaContratacion" maxWidth="Infinity"
+                    GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Estado:" styleClass="etiqueta" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+        <ComboBox fx:id="cmbEstado" promptText="Seleccione..." maxWidth="Infinity"
+                  GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+    </GridPane>
+
+    <!-- botones -->
+    <HBox spacing="12" alignment="CENTER">
+        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardarEmpleado"
+                styleClass="boton-guardar"/>
+        <Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiarFormulario"
+                styleClass="boton-limpiar"/>
+        <Button fx:id="btnActualizar" text="Actualizar tabla" onAction="#actualizarTabla"
+                styleClass="boton-actualizar"/>
+    </HBox>
+
+    <Label text="EMPLEADOS REGISTRADOS" styleClass="titulo-tabla"/>
+
+    <!-- Tabla -->
+    <TableView fx:id="tvEmpleados" prefHeight="280" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+            <TableColumn fx:id="colNombres" text="Nombres" prefWidth="100"/>
+            <TableColumn fx:id="colApellidos" text="Apellidos" prefWidth="100"/>
+            <TableColumn fx:id="colCedula" text="Cédula" prefWidth="130"/>
+            <TableColumn fx:id="colCorreo" text="Correo" prefWidth="170"/>
+            <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="90"/>
+            <TableColumn fx:id="colCargo" text="Cargo" prefWidth="110"/>
+            <TableColumn fx:id="colDepartamento" text="Departamento" prefWidth="120"/>
+            <TableColumn fx:id="colSalario" text="Salario" prefWidth="80"/>
+            <TableColumn fx:id="colFechaContratacion" text="Fecha contratación" prefWidth="130"/>
+            <TableColumn fx:id="colEstado" text="Estado" prefWidth="80"/>
+        </columns>
+    </TableView>
+</VBox>
